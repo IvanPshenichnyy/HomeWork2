@@ -14,10 +14,11 @@ namespace HomeWork2
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("=====================");
+            Console.WriteLine("Пшеничный Иван, Практика 2");
             Console.WriteLine("1 - Метод, возвращающий минимальное из трёх чисел.");
             Console.WriteLine("2 - Метод подсчета количества цифр числа.");
             Console.WriteLine("3 - С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел.");
-            Console.WriteLine("4 - Реализовать метод проверки логина и пароля. На вход метода подается логин и пароль. На выходе истина, если прошел авторизацию, и ложь, если не прошел (Логин: root, Password: GeekBrains). Используя метод проверки логина и пароля, написать программу: пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает. С помощью цикла do while ограничить ввод пароля тремя попытками.");
+            Console.WriteLine("4 - Метод проверки логина и пароля. На вход метода подается логин и пароль. На выходе истина, если прошел авторизацию, и ложь, если не прошел (Логин: root, Password: GeekBrains). Используя метод проверки логина и пароля, написать программу: пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает. С помощью цикла do while ограничить ввод пароля тремя попытками.");
             Console.WriteLine("0 - Завершение работы приложения.");
             Console.WriteLine("=====================");
             Console.WriteLine("Введите номер задачи: ");
@@ -94,14 +95,26 @@ namespace HomeWork2
         {
             Console.Clear();
             Console.WriteLine("С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел.");
-            Console.Write("Ввдите произвольное число. ");
+            Console.Write("Ввдите произвольное число или 0 для завершения работы. ");
             int number = returnNumber();
+            string alluserNum = "";
+            string alluserNotEvenNum = "";
+            int summNum = 0;
             while (number != 0)
             {
-                Console.Write("Ввдите произвольное число. ");
+                if (number % 2 != 0 && number > 0)
+                {
+                    summNum = summNum + number;
+                    alluserNotEvenNum = alluserNotEvenNum + number + " ";
+                }
+                alluserNum = alluserNum + number + " ";
+                Console.Write("Ввдите произвольное число или 0 для завершения работы. ");
                 number = returnNumber();
+
+
             };
-            Console.WriteLine($"Введено число {number}.\nКонец работы. ");
+            Console.WriteLine($"Введено число {number}.\nКонец работы.");
+            Console.WriteLine($"Вы ввели числа {alluserNum}.\nИз них нечетные положительных числа {alluserNotEvenNum}\nСумма этих чисел равна {summNum}.");
             Console.WriteLine("Для возврата в меню нажмите любую клавишу.");
             Console.ReadKey();
             Console.Clear();
@@ -163,7 +176,6 @@ namespace HomeWork2
             {
 
                   
-
                 refreshMenu();
                
                 int taskNumber = returnNumber();
