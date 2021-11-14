@@ -95,14 +95,26 @@ namespace HomeWork2
         {
             Console.Clear();
             Console.WriteLine("С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечетных положительных чисел.");
-            Console.Write("Ввдите произвольное число. ");
+            Console.Write("Ввдите произвольное число или 0 для завершения работы. ");
             int number = returnNumber();
+            string alluserNum = "";
+            string alluserNotEvenNum = "";
+            int summNum = 0;
             while (number != 0)
             {
-                Console.Write("Ввдите произвольное число. ");
+                if (number % 2 != 0 && number > 0)
+                {
+                    summNum = summNum + number;
+                    alluserNotEvenNum = alluserNotEvenNum + number + " ";
+                }
+                alluserNum = alluserNum + number + " ";
+                Console.Write("Ввдите произвольное число или 0 для завершения работы. ");
                 number = returnNumber();
+
+
             };
-            Console.WriteLine($"Введено число {number}.\nКонец работы. ");
+            Console.WriteLine($"Введено число {number}.\nКонец работы.");
+            Console.WriteLine($"Вы ввели числа {alluserNum}.\nИз них нечетные положительных числа {alluserNotEvenNum}\nСумма этих чисел равна {summNum}.");
             Console.WriteLine("Для возврата в меню нажмите любую клавишу.");
             Console.ReadKey();
             Console.Clear();
